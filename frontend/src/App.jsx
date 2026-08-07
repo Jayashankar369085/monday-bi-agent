@@ -31,7 +31,7 @@ function App() {
 
   const checkApiHealth = async () => {
     try {
-      const response = await fetch('http://localhost:8000/api/health')
+      const response = await fetch('https://monday-bi-agent-j1dx.onrender.com/api/health')
       if (response.ok) {
         setApiStatus('online')
       } else {
@@ -44,7 +44,7 @@ function App() {
 
   const fetchKpiData = async () => {
     try {
-      const response = await fetch('http://localhost:8000/api/kpi-dashboard')
+      const response = await fetch('https://monday-bi-agent-j1dx.onrender.com/api/kpi-dashboard')
       if (response.ok) {
         const data = await response.json()
         setKpiData({
@@ -83,7 +83,7 @@ function App() {
     setLoading(true)
 
     try {
-      const response = await fetch('http://localhost:8000/api/chat', {
+      const response = await fetch('https://monday-bi-agent-j1dx.onrender.com/api/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -122,7 +122,7 @@ function App() {
     setLoading(true)
 
     try {
-      const response = await fetch('http://localhost:8000/api/chat', {
+      const response = await fetch('https://monday-bi-agent-j1dx.onrender.com/api/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -151,7 +151,7 @@ function App() {
   const handleGetLeadershipUpdate = async () => {
     setLoading(true)
     try {
-      const response = await fetch('http://localhost:8000/api/leadership-update')
+      const response = await fetch('https://monday-bi-agent-j1dx.onrender.com/api/leadership-update')
       if (response.ok) {
         const data = await response.json()
         const message = { 
