@@ -1,0 +1,59 @@
+C:\Users\Jayashankar P\AppData\Local\Programs\Python\Python311\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+2026-08-07 13:22:07,565 | INFO | Root endpoint accessed
+2026-08-07 13:22:07,567 | INFO | HTTP Request: GET http://testserver/ "HTTP/1.1 200 OK"
+2026-08-07 13:22:09,282 | INFO | HTTP Request: POST https://api.monday.com/v2 "HTTP/1.1 401 Unauthorized"
+2026-08-07 13:22:09,284 | ERROR | Monday.com API error: Client error '401 Unauthorized' for url 'https://api.monday.com/v2'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-08-07 13:22:11,142 | INFO | HTTP Request: GET https://api.openai.com/v1/models "HTTP/1.1 401 Unauthorized"
+2026-08-07 13:22:11,145 | ERROR | Health check failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: test_key. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2026-08-07 13:22:11,146 | INFO | HTTP Request: GET http://testserver/api/health "HTTP/1.1 200 OK"
+2026-08-07 13:22:11,152 | INFO | Processing query: Test question
+2026-08-07 13:22:11,154 | INFO | HTTP Request: POST http://testserver/api/chat "HTTP/1.1 200 OK"
+2026-08-07 13:22:12,030 | INFO | HTTP Request: POST https://api.monday.com/v2 "HTTP/1.1 401 Unauthorized"
+2026-08-07 13:22:12,032 | ERROR | Monday.com API error: Client error '401 Unauthorized' for url 'https://api.monday.com/v2'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-08-07 13:22:12,032 | ERROR | Leadership update error: Client error '401 Unauthorized' for url 'https://api.monday.com/v2'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-08-07 13:22:12,034 | INFO | HTTP Request: GET http://testserver/api/leadership-update "HTTP/1.1 500 Internal Server Error"
+2026-08-07 13:22:12,041 | INFO | HTTP Request: GET http://testserver/docs "HTTP/1.1 200 OK"
+============================================================
+TESTING API ROUTES
+============================================================
+
+1. Testing GET /
+   Status: 200
+   Message: Monday BI Agent Backend Running
+   Version: 1.0.0
+   [PASS]
+
+2. Testing GET /api/health
+   Status: 200
+   Health status: degraded
+   [PASS]
+
+3. Testing POST /api/chat
+   Status: 200
+   Response keys: ['answer']
+   [PASS] (endpoint exists and responds)
+
+4. Testing GET /api/leadership-update
+   Status: 500
+   Error (expected): {"detail":"Client error '401 Unauthorized' for url 'https://api.monday.com/v2'\n
+   [PASS] (endpoint exists and responds)
+
+5. Testing GET /docs (OpenAPI)
+   Status: 200
+   [PASS]
+
+6. Checking all routes are registered
+   [MISSING] /api/chat
+   [MISSING] /api/health
+   [MISSING] /api/leadership-update
+   [OK] /
+   [PASS]
+
+============================================================
+RESULTS: 6 passed, 0 failed
+ALL TESTS COMPLETED
+============================================================

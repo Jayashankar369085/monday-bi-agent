@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: skylark-bi-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - MONDAY_API_TOKEN=${MONDAY_API_TOKEN}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - CACHE_TTL=300
+      - APP_NAME=Monday BI Agent
+      - APP_VERSION=1.0.0
+    volumes:
+      - ./backend/app:/app/app
+    networks:
+      - skylark-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: skylark-bi-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - skylark-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  skylark-network:
+    driver: bridge

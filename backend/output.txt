@@ -1,0 +1,9 @@
+Python version: 3.11.7 (tags/v3.11.7:fa7a6f2, Dec  4 2023, 19:24:49) [MSC v.1937 64 bit (AMD64)]
+Python path: C:\Users\Jayashankar P\AppData\Local\Programs\Python\Python311\python.exe
+Current dir: d:\monday-bi-agent\backend
+App dir exists: True
+Main.py exists: True
+FastAPI available: Yes
+Config loaded: Yes
+App loaded: Yes
+Routes: 6

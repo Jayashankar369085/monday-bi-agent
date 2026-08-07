@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "d:\monday-bi-agent\backend\test_imports_noai.py", line 9, in <module>
+    print("\u2713 Cleaner imports OK")
+  File "C:\Users\Jayashankar P\AppData\Local\Programs\Python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2713' in position 0: character maps to <undefined>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "d:\monday-bi-agent\backend\test_imports_noai.py", line 11, in <module>
+    print(f"\u2717 Cleaner import failed: {e}")
+  File "C:\Users\Jayashankar P\AppData\Local\Programs\Python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2717' in position 0: character maps to <undefined>
