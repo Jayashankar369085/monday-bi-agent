@@ -1,4 +1,4 @@
-# Skylark Drones BI Agent - Complete Project Index
+# MondayBI Agent - Complete Project Index
 
 **Status**: ✅ PRODUCTION READY  
 **Version**: 1.0.0  
